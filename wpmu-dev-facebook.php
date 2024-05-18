@@ -27,13 +27,13 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 */
 
-define ( 'WDFB_PLUGIN_SELF_DIRNAME', basename( dirname( __FILE__ ) ), true );
-define ( 'WDFB_PROTOCOL', ( is_ssl() ? 'https://' : 'http://' ), true );
+define ( 'WDFB_PLUGIN_SELF_DIRNAME', basename( dirname( __FILE__ ) ));
+define ( 'WDFB_PROTOCOL', ( is_ssl() ? 'https://' : 'http://' ));
 define ( 'WDFB_PLUGIN_CORE_URL', plugins_url(), true );
-define ( 'WDFB_PLUGIN_CORE_BASENAME', plugin_basename( __FILE__ ), true );
+define ( 'WDFB_PLUGIN_CORE_BASENAME', plugin_basename( __FILE__ ));
 define ( 'WDFB_PLUGIN_VERSION', '2.8.2' );
 if ( ! defined( 'WDFB_MEMBERSHIP_INSTALLED' ) ) {
-	define ( 'WDFB_MEMBERSHIP_INSTALLED', ( defined( 'MEMBERSHIP_MASTER_ADMIN' ) && defined( 'MEMBERSHIP_SETACTIVATORAS_ADMIN' ) ), true );
+	define ( 'WDFB_MEMBERSHIP_INSTALLED', ( defined( 'MEMBERSHIP_MASTER_ADMIN' ) && defined( 'MEMBERSHIP_SETACTIVATORAS_ADMIN' ) ));
 }
 
 //Setup proper paths/URLs and load text domains
@@ -49,11 +49,11 @@ if ( is_multisite() && defined( 'WPMU_PLUGIN_URL' ) && defined( 'WPMU_PLUGIN_DIR
 
 } else if ( defined( 'WP_PLUGIN_URL' ) && defined( 'WP_PLUGIN_DIR' ) && file_exists( WP_PLUGIN_DIR . '/' . WDFB_PLUGIN_SELF_DIRNAME . '/' . basename( __FILE__ ) ) ) {
 
-	define ( 'WDFB_PLUGIN_LOCATION', 'subfolder-plugins', true );
+	define ( 'WDFB_PLUGIN_LOCATION', 'subfolder-plugins');
 
-	define ( 'WDFB_PLUGIN_BASE_DIR', WP_PLUGIN_DIR . '/' . WDFB_PLUGIN_SELF_DIRNAME, true );
+	define ( 'WDFB_PLUGIN_BASE_DIR', WP_PLUGIN_DIR . '/' . WDFB_PLUGIN_SELF_DIRNAME);
 
-	define ( 'WDFB_PLUGIN_URL', apply_filters( 'wdfb-core-plugin_url', str_replace( 'http://', WDFB_PROTOCOL, WP_PLUGIN_URL ) . '/' . WDFB_PLUGIN_SELF_DIRNAME ), true );
+	define ( 'WDFB_PLUGIN_URL', apply_filters( 'wdfb-core-plugin_url', str_replace( 'http://', WDFB_PROTOCOL, WP_PLUGIN_URL ) . '/' . WDFB_PLUGIN_SELF_DIRNAME ) );
 
 	$textdomain_handler = 'load_plugin_textdomain';
 
@@ -181,7 +181,7 @@ if ( ! wp_next_scheduled( 'wdfb_import_comments' ) ) {
 	wp_schedule_event( time() + 600, 'hourly', 'wdfb_import_comments' );
 }
 
-define( "WDFB_CORE_IS_ADMIN", ( is_admin() || ( defined( 'XMLRPC_REQUEST' ) && XMLRPC_REQUEST ) || ( defined( 'DOING_CRON' ) && DOING_CRON ) ), true );
+define( "WDFB_CORE_IS_ADMIN", ( is_admin() || ( defined( 'XMLRPC_REQUEST' ) && XMLRPC_REQUEST ) || ( defined( 'DOING_CRON' ) && DOING_CRON ) ));
 
 function _wdfb_initialize() {
 	// Include the metabox abstraction
